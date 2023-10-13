@@ -1,12 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-
-  FormGroup,
-  FormControl,
-  Validators,
-  FormBuilder
-
-}from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -15,21 +8,19 @@ import {
 })
 export class RegistroPage implements OnInit {
 
-  formularioRegistro: FormGroup;
+  nombre: string | undefined;
+  correo: string | undefined;
+  contrasena: string | undefined;
 
-  constructor(public fb: FormBuilder) { 
-    this.formularioRegistro = this.fb.group({
-      'nombre': new FormControl("",Validators.required),
-      'password': new FormControl("",Validators.required),
-      'confirmacionPassword': new FormControl("",Validators.required)
-    });
+  constructor(private router: Router) { }
+
+  registrarUsuario() {
+    // Aquí puedes agregar lógica para registrar al usuario, por ejemplo, enviar datos a un servicio o API.
+    // Luego, redirige al usuario a otra página, por ejemplo, la página de inicio de sesión.
+    this.router.navigate(['/login']);
   }
 
   ngOnInit() {
-  }
-
-  guardar(){
-    console.log('guardar');
   }
 
 }
